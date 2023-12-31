@@ -16,10 +16,19 @@ class productadmin(SummernoteModelAdmin):
     summernote_fields = ('subtitle','descriptions')
     inlines=[Imageadmin]
 
+class Reviewadmin(SummernoteModelAdmin):
+
+    list_display=['author']
+    list_filter=['rate']
+    search_fields=['author']
+    summernote_fields = ('review',)
+
+
+
 # Register your models here.
 
 admin .site.register(Product,productadmin)
-admin .site.register(Review)
+admin .site.register(Review,Reviewadmin)
 admin .site.register(Brand)
 #admin .site.register(ProdImage)
 
